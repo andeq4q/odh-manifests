@@ -92,15 +92,15 @@ spec:
           configMap:
             name: superset-config-py
             defaultMode: 420
-      - name: trusted-ca-pem
-        configMap:
-          name: trusted-ca
-          items:
-            - key: ca-bundle.crt
-              path: tls-ca-bundle.pem
-      - name: trusted-ca-crt
-        configMap:
-          name: trusted-ca
-          items:
-            - key: ca-bundle.crt
-              path: ca-bundle.trust.crt
+        - name: trusted-ca-pem
+          configMap:
+            name: trusted-ca
+            items:
+              - key: ca-bundle.crt
+                path: tls-ca-bundle.pem
+        - name: trusted-ca-crt
+          configMap:
+            name: trusted-ca
+            items:
+              - key: ca-bundle.crt
+                path: ca-bundle.trust.crt
