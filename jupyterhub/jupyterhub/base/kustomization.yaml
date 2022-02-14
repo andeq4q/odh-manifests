@@ -27,6 +27,7 @@ resources:
 - traefik-rolebinding.yaml
 - traefik-serviceaccount.yaml
 - traefik-service.yaml
+- trusted-ca-configmap.yaml
 
 commonLabels:
   opendatahub.io/component: "true"

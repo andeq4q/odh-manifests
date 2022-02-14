@@ -12,6 +12,7 @@ resources:
 - superset-rbac-viewer-role.yaml
 - superset-rbac-viewer-rolebinding.yaml
 - superset-service-account.yaml
+- trusted-ca-configmap.yaml
 
 commonLabels:
   opendatahub.io/component: "true"
