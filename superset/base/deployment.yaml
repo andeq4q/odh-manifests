@@ -69,7 +69,7 @@ spec:
         - name: SUPERSET_CONFIG_PATH
           value: /etc/superset/superset_config.py
         - name: SSL_FILE_CERT
-          value: /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+          value: /etc/pki/ca-trust/pem/tls-ca-bundle.pem
         image: superset
         ports:
           - containerPort: 8088
