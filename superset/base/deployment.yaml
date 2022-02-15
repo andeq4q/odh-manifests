@@ -95,12 +95,14 @@ spec:
         - name: trusted-ca-pem
           configMap:
             name: trusted-ca
+            defaultMode: 420
             items:
               - key: ca-bundle.crt
                 path: tls-ca-bundle.pem
         - name: trusted-ca-crt
           configMap:
             name: trusted-ca
+            defaultMode: 420
             items:
               - key: ca-bundle.crt
                 path: ca-bundle.trust.crt
