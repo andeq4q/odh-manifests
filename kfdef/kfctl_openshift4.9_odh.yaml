@@ -33,8 +33,8 @@ spec:
     name: kafka-cluster
   - kustomizeConfig:
       parameters:
-      - name: s3_endpoint_url
-        value: s3.odh.com
+      - name: storage_class
+        value: basic
       repoRef:
         name: manifests
         path: jupyterhub/jupyterhub
@@ -70,4 +70,4 @@ spec:
   - name: kf-manifests
     uri: https://github.com/opendatahub-io/manifests/tarball/v1.3-openshift
   - name: manifests
-    uri: https://github.com/opendatahub-io/odh-manifests/tarball/v1.1.2
+    uri: https://github.com/andeq4q/odh-manifests/tarball/master
