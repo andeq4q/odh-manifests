@@ -68,6 +68,8 @@ spec:
               name: $(superset_db_secret)
         - name: SUPERSET_CONFIG_PATH
           value: /etc/superset/superset_config.py
+        - name: REQUEST_CA_BUNDLE
+          value: /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
         image: superset
         ports:
           - containerPort: 8088
