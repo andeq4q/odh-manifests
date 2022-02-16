@@ -24,6 +24,11 @@ spec:
         path: superset
     name: superset
   - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: radanalyticsio/spark/cluster
+    name: radanalyticsio-spark-cluster
+  - kustomizeConfig:
       parameters:
       - name: namespace
         value: openshift-operators
