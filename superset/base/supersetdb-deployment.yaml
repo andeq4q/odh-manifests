@@ -63,21 +63,12 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/pgsql/data
           name: "supersetdb-data"
-        - name: trusted-ca-pem
-          mountPath: /etc/pki/ca-trust/extracted/pem
         - name: trusted-ca-crt
-          mountPath: /etc/pki/tls/certs
+          mountPath: /etc/pki/ca-trust/source/anchors
       volumes:
       - name: "supersetdb-data"
         persistentVolumeClaim:
           claimName: supersetdb-data
-      - name: trusted-ca-pem
-        configMap:
-          name: trusted-ca
-          defaultMode: 420
-          items:
-            - key: ca-bundle.crt
-              path: tls-ca-bundle.pem
       - name: trusted-ca-crt
         configMap:
           name: trusted-ca
