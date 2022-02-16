@@ -44,7 +44,7 @@ spec:
           - mountPath: /etc/superset
             name: superset-config
           - name: trusted-ca-pem
-            mountPath: /etc/pki/ca-trust/extracted/pem
+            mountPath: /usr/local/lib/python3.8/site-packages/certifi
       containers:
       - name: superset
         env:
@@ -78,7 +78,7 @@ spec:
           - mountPath: /etc/superset
             name: superset-config
           - name: trusted-ca-pem
-            mountPath: /etc/pki/ca-trust/extracted/pem
+            mountPath: /usr/local/lib/python3.8/site-packages/certifi
         resources:
           requests:
             cpu: $(superset_cpu_requests)
@@ -98,4 +98,4 @@ spec:
             defaultMode: 420
             items:
               - key: ca-bundle.crt
-                path: tls-ca-bundle.pem
+                path: cacert.pem
