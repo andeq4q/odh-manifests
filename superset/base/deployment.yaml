@@ -78,7 +78,7 @@ spec:
           - name: trusted-ca-pem
             mountPath: /etc/pki/ca-trust/extracted/pem
           - name: trusted-ca
-            mountPath: /etc/pki/ca-trust/extracted/openssl
+            mountPath: /etc/ssl/certs
           - name: trusted-ca-crt
             mountPath: /etc/pki/ca-trust/source/anchors
         resources:
@@ -111,4 +111,4 @@ spec:
             name: trusted-ca
             items:
               - key: ca-bundle.crt
-                path: ca-bundle.crt
+                path: ca-certificates.crt
