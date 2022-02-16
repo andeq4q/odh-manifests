@@ -43,8 +43,8 @@ spec:
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
-          - name: trusted-ca-crt
-            mountPath: /etc/pki/ca-trust/source/anchors
+          - name: trusted-ca-pem
+            mountPath: /etc/pki/ca-trust/extracted/pem
       containers:
       - name: superset
         env:
@@ -77,8 +77,8 @@ spec:
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
-          - name: trusted-ca-crt
-            mountPath: /etc/pki/ca-trust/source/anchors
+          - name: trusted-ca-pem
+            mountPath: /etc/pki/ca-trust/extracted/pem
         resources:
           requests:
             cpu: $(superset_cpu_requests)
@@ -92,10 +92,10 @@ spec:
           configMap:
             name: superset-config-py
             defaultMode: 420
-        - name: trusted-ca-crt
+        - name: trusted-ca-pem
           configMap:
             name: trusted-ca
             defaultMode: 420
             items:
               - key: ca-bundle.crt
-                path: ca-bundle.crt
+                path: tls-ca-bundle.pem
