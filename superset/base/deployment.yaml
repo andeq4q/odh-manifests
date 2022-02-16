@@ -43,8 +43,6 @@ spec:
         volumeMounts:
           - mountPath: /etc/superset
             name: superset-config
-          - name: trusted-ca-pem
-            mountPath: /usr/local/lib/python3.8/site-packages/certifi
       containers:
       - name: superset
         env:
