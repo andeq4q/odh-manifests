@@ -11,6 +11,11 @@ spec:
         path: odh-common
     name: odh-common
   - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: odhseldon/cluster
+    name: odhseldon
+  - kustomizeConfig:
       parameters:
       - name: SUPERSET_ADMIN_PASSWORD
         value: admin
@@ -59,15 +64,40 @@ spec:
   - kustomizeConfig:
       repoRef:
         name: manifests
+        path: grafana/cluster
+    name: grafana-cluster
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: grafana/grafana
+    name: grafana-instance
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
         path: odhargo/cluster
     name: odhargo-cluster
   - kustomizeConfig:
       repoRef:
         name: manifests
+        path: odhargo/odhargo
+    name: odhargo
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
         path: odh-dashboard
     name: odh-dashboard
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: airflow/operator
+    name: airflow-operator
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: airflow/cluster
+    name: airflow-cluster
   repos:
   - name: kf-manifests
-    uri: https://github.com/opendatahub-io/manifests/tarball/v1.3-openshift
+    uri: https://github.com/opendatahub-io/manifests/tarball/v1.4.0-rc.2-openshift
   - name: manifests
     uri: https://github.com/andeq4q/odh-manifests/tarball/master
