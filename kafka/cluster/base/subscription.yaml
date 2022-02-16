@@ -6,6 +6,6 @@ metadata:
   namespace: openshift-operators
 spec:
   name: strimzi-kafka-operator
-  channel: "stable
+  channel: stable
   source: community-operators
   sourceNamespace: openshift-marketplace
