@@ -75,6 +75,11 @@ spec:
         name: manifests
         path: airflow/cluster
     name: airflow-cluster
+  - kustomizeConfig:
+      repoRef:
+        name: manifests
+        path: odh-dashboard
+    name: odh-dashboard
   repos:
   - name: kf-manifests
     uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz
