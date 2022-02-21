@@ -21,14 +21,6 @@ spec:
         path: superset
     name: superset
   - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: openshift-operators
-      repoRef:
-        name: manifests
-        path: kafka/cluster
-    name: strimzi-operator
-  - kustomizeConfig:
       repoRef:
         name: manifests
         path: kafka/kafka
@@ -60,15 +52,14 @@ spec:
     name: prometheus-operator
   - kustomizeConfig:
       parameters:
-        - name: s3_endpoint_url
-          value: "s3.odh.com"
+        - name: storage_class
+          value: "basic"
       repoRef:
         name: manifests
         path: jupyterhub/jupyterhub
     name: jupyterhub
   - kustomizeConfig:
       overlays:
-      #- cuda-11.0.3
       - additional
       repoRef:
         name: manifests
@@ -84,21 +75,6 @@ spec:
         name: manifests
         path: airflow/cluster
     name: airflow-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odhargo/cluster
-    name: odhargo-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odhargo/odhargo
-    name: odhargo
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odh-dashboard
-    name: odh-dashboard
   repos:
   - name: kf-manifests
     uri: https://github.com/kubeflow/manifests/archive/v1.2-branch.tar.gz

@@ -5,8 +5,24 @@ metadata:
     app: jupyterhub
   name: jupyterhub-cfg
 data:
-  jupyterhub_config.py: ""
-
+  jupyterhub_config.py:|
+  jupyterhub_config.py: |
+    c.KubeSpawner.volumes.append({
+      'name': 'trusted-ca',
+      'configMap': {
+        'name': 'trusted-ca-bundle',
+        'items': [
+          {
+            'key': 'ca-bundle.crt',
+            'path': 'tls-ca-bundle.pem'
+          }
+        ]
+      }
+    })
+    c.KubeSpawner.volume_mounts.append({
+      'name': 'trusted-ca',
+      'mountPath': '/etc/pki/ca-trust/extracted/pem'
+    })
   jupyterhub_admins: "admin"
   gpu_mode: ""
   singleuser_pvc_size: 2Gi
