@@ -9,7 +9,7 @@ data:
     c.KubeSpawner.volumes.append({
       'name': 'trusted-ca',
       'configMap': {
-        'name': 'trusted-ca-bundle',
+        'name': 'trusted-ca',
         'items': [
           {
             'key': 'ca-bundle.crt',
